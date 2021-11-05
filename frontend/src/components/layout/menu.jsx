@@ -13,7 +13,7 @@ export default function Menu(props){
                 label="Cadastro" 
                 icon="edit">
                     <MenuItem 
-                        path="#billingCycles" 
+                        path="#/billingCycles" 
                         label="Ciclos de Pagamentos" 
                         icon="usd"/>
             </MenuTree>
