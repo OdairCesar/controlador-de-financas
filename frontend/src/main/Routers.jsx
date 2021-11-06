@@ -1,8 +1,8 @@
 import React from 'react'
 import { Router, Route, Redirect, hashHistory } from 'react-router'
 
-import Dashboard from '../components/dashboard/dashboard'
-import BillingCycles from '../components/billingCycles/billingCycles'
+import Dashboard from '../components/pages/dashboard/dashboard'
+import BillingCycles from '../components/pages/billingCycles/billingCycles'
 
 export default function Routers(props){
     return(

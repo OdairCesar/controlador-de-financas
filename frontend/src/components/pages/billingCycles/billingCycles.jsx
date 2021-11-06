@@ -1,5 +1,5 @@
 import React from 'react'
-import ContentHeader from '../layout/contentHeader'
+import ContentHeader from '../../template/contentHeader'
 
 export default function BillingCycles(props){
     return(

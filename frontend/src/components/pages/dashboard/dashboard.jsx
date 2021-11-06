@@ -1,8 +1,8 @@
 import React from 'react'
-import Content from '../layout/content'
-import ContentHeader from '../layout/contentHeader'
-import ValueBox from '../widget/valueBox'
-import Row from '../layout/row'
+import Content from '../../template/content'
+import ContentHeader from '../../template/contentHeader'
+import ValueBox from '../../widget/valueBox'
+import Row from '../../layout/row'
 
 
 export default function Dashboard(props){

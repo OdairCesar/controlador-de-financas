@@ -1,6 +1,6 @@
-import '../components/layout/dependencies'
-import Header from '../components/layout/header'
-import SideBar from '../components/layout/sideBar'
+import '../components/template/dependencies'
+import Header from '../components/template/header'
+import SideBar from '../components/template/sideBar'
 import React from 'react'
 import Routers from './Routers'
 
