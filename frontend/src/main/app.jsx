@@ -9,9 +9,9 @@ export default function App(props){
         <div className='wrapper'>
             <Header />
             <SideBar/>
-            <div className='content-wrapper'>
+            <main className='content-wrapper'>
                 <Routers />
-            </div>
+            </main>
         </div>
     )
 }

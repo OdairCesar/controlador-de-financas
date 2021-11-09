@@ -4,6 +4,8 @@ import { connect } from 'react-redux'
 
 import ContentHeader from '../../template/contentHeader'
 import Content from '../../template/content'
+import BillingCycleList from './billingCycleList'
+
 import Tabs from './tab/tabs'
 import TabsHeader from './tab/tabsHeader'
 import TabHeader from './tab/tabHeader'
@@ -15,7 +17,7 @@ class BillingCycles extends Component{
 
     componentWillMount(){
         this.props.selectTab('tabList')
-        this.props.showTabs('tabList', 'tabCreate')
+        this.props.showTabs('tabList', 'tabCreate', 'tabUpdate', 'tabDelete')
     }
 
     render(){
@@ -31,7 +33,9 @@ class BillingCycles extends Component{
                             <TabHeader label='Excluir' icon='trash-o' target='tabDelete'/>
                         </TabsHeader>
                         <TabsContent>
-                            <TabContent id='tabList'><h1>Lista</h1></TabContent>
+                            <TabContent id='tabList'>
+                                <BillingCycleList />
+                            </TabContent>
                             <TabContent id='tabCreate'><h1>Incluir</h1></TabContent>
                             <TabContent id='tabUpdate'><h1>Alterar</h1></TabContent>
                             <TabContent id='tabDelete'><h1>Excluir</h1></TabContent>
