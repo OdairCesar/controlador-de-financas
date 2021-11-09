@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
-import If from '../if'
+import If from '../../../layout/if'
 
 class TabContent extends Component{
     render(){

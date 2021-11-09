@@ -4,12 +4,12 @@ import { connect } from 'react-redux'
 
 import ContentHeader from '../../template/contentHeader'
 import Content from '../../template/content'
-import Tabs from '../../layout/tab/tabs'
-import TabsHeader from '../../layout/tab/tabsHeader'
-import TabHeader from '../../layout/tab/tabHeader'
-import TabsContent from '../../layout/tab/tabsContent'
-import TabContent from '../../layout/tab/tabContent'
-import { selectTab, showTabs } from '../../layout/tab/tabActions'
+import Tabs from './tab/tabs'
+import TabsHeader from './tab/tabsHeader'
+import TabHeader from './tab/tabHeader'
+import TabsContent from './tab/tabsContent'
+import TabContent from './tab/tabContent'
+import { selectTab, showTabs } from './tab/tabActions'
 
 class BillingCycles extends Component{
 

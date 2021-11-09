@@ -3,7 +3,7 @@ import { bindActionCreators} from 'redux'
 import { connect } from 'react-redux'
 
 import { selectTab } from './tabActions'
-import If from '../if'
+import If from '../../../layout/if'
 class TabHeader extends Component{
     render(){
         const selected = this.props.tab.selected === this.props.target
