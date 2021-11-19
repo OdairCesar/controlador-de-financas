@@ -1,8 +1,11 @@
+import React from 'react'
+
 import '../components/template/dependencies'
 import Header from '../components/template/header'
 import SideBar from '../components/template/sideBar'
-import React from 'react'
 import Routers from './Routers'
+import Footer from '../components/template/footer'
+import Messages from '../components/template/messages'
 
 export default function App(props){
     return(
@@ -12,6 +15,8 @@ export default function App(props){
             <main className='content-wrapper'>
                 <Routers />
             </main>
+            <Footer />
+            <Messages />
         </div>
     )
 }
