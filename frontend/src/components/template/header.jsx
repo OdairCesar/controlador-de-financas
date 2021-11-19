@@ -5,11 +5,11 @@ export default function Header(props){
         <header className="main-header">
             <a href="/#/" className="logo">
                 <span className="logo-mini">
-                    <b> My</b> M
+                    <b> M</b> F
                 </span>
                 <span className="logo-lg">
                     <i className="fa fa-money"></i>
-                    <b> My</b> Money
+                    <b> Minha</b> Finança
                 </span>
             </a>
             <nav className="navbar navbar-static-top">
