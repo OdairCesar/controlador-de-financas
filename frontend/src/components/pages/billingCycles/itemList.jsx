@@ -5,6 +5,7 @@ import { bindActionCreators } from 'redux'
 
 import Grid from '../../layout/grid'
 import Input from '../../layout/input'
+import If from '../../layout/if'
 
 class ItemList extends Component{
     
@@ -40,6 +41,16 @@ class ItemList extends Component{
                         readOnly={this.props.readOnly}
                         type='number'/>
                 </td>
+                <If test={this.props.showStatus}>
+                    <td>
+                        <Field 
+                            name={`${this.props.field}[${index}].status`}
+                            component={Input}
+                            placeholder='Digite o status'
+                            readOnly={this.props.readOnly}
+                            type='text'/>
+                    </td>
+                </If>
                 <td>
                     <button 
                         type='button' 
@@ -74,6 +85,9 @@ class ItemList extends Component{
                             <tr>
                                 <th>Nome</th>
                                 <th>Valor</th>
+                                <If test={this.props.showStatus}>
+                                    <th>Status</th>
+                                </If>
                                 <th className='table-actions'>Ações</th>
                             </tr>
                         </thead>

@@ -48,6 +48,13 @@ class BillingCycleForm extends Component{
                         legends='Créditos'
                         list={credits}
                         readOnly={readOnly}/>
+                    <ItemList 
+                        cols='12 6'
+                        field='debts'
+                        legends='Débitos'
+                        list={debts}
+                        showStatus={true}
+                        readOnly={readOnly}/>
                 </div>
                 <div className='box-footer'>
                     <button 
@@ -69,7 +76,7 @@ class BillingCycleForm extends Component{
 BillingCycleForm = reduxForm({ form: 'billingCycleForm', destroyOnUnmount: false})(BillingCycleForm)
 const selector = formValueSelector('billingCycleForm')
 
-const mapStateToProps = state => ({ credits: selector(state, 'credits')})
+const mapStateToProps = state => ({ credits: selector(state, 'credits'), debts: selector(state, 'debts')})
 const mapDispatchToProps = dispatch => bindActionCreators({init}, dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(BillingCycleForm)
