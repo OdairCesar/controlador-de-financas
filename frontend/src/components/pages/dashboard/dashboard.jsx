@@ -7,6 +7,7 @@ import Content from '../../template/content'
 import ContentHeader from '../../template/contentHeader'
 import ValueBox from '../../widget/valueBox'
 import Row from '../../layout/row'
+import Summary from '../../template/summary'
 
 
 class Dashboard extends Component{
@@ -23,26 +24,7 @@ class Dashboard extends Component{
                     title='Dashboard' 
                     small='Versão 1'/>
                 <Content>
-                    <Row>
-                        <ValueBox 
-                            cols='12 4' 
-                            color='green' 
-                            icon='bank' 
-                            value={`R$ ${credit}`}
-                            text='Total de Creditos' />
-                        <ValueBox 
-                            cols='12 4' 
-                            color='red' 
-                            icon='credit-card' 
-                            value={`R$ ${debt}`} 
-                            text='Total de Débitos' />
-                        <ValueBox 
-                            cols='12 4' 
-                            color='blue' 
-                            icon='money' 
-                            value={`R$ ${credit - debt}`} 
-                            text='Valor Consolidado' />
-                    </Row>
+                    <Summary credit={credit} debt={debt}/>
                 </Content>
             </div>
         )
