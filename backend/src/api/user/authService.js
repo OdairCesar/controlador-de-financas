@@ -36,8 +36,11 @@ const login = (req, res, next) =>{
 }
 
 const validateToken = (req, res, next) => {
-    const token = req.body.token
-    jwt.verify(token, env.authSecret, function (err, decoded){//verificamos se o token do sistema é o mesmo passado
+    //Tratamos dos atributos passados, caso estejam vazios
+    const token = req.body.token || ''
+
+    //verificamos atraves do jwt, se o token do sistema, é o mesmo passado pelo usuario
+    jwt.verify(token, env.authSecret, function (err, decoded){
         return res.status(200).send({ valid: !err})
     })
 }
