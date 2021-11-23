@@ -23,5 +23,3 @@ Abra por fim a pasta frontend e faça o mesmo comando:
 <CODE>npm run dev</CODE>
 Pronto o projeto esta funcinando perfeitamente.
 
-##Documentação:
-###API
