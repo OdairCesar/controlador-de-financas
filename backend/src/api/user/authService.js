@@ -5,7 +5,7 @@ const User = require('./user')
 const env = require('../../.env')
 
 const emailRegex = /\S+@\S+\.\S+/
-const passwordRegex = /((?=.*\d)(?=.*[a-z])(?-.*[A=Z])(?=.*[@#$%]).{6,20})/
+const passwordRegex = /((?=.*\d)(?=.*[a-z])(?=.*[A=Z])(?=.*[@#$%]).{6,20})/
 
 const sendErrorsFromDB = (res, dbErrors) => {
     const errors = []
@@ -99,4 +99,4 @@ const signup = (req, res, next) => {
     })
 }
 
-module.exports = { login, signup, validateToken}
+module.exports = { login, signup, validateToken }
