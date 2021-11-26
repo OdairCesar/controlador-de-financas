@@ -9,10 +9,12 @@ const passwordRegex = /((?=.*\d)(?=.*[a-z])(?-.*[A=Z])(?=.*[@#$%]).{6,20})/
 
 const sendErrorsFromDB = (res, dbErrors) => {
     const errors = []
+    
     _.forIn(dbErrors.errors, error => errors.push(error.message))
     return res.status(400).json({ errors })
 }
 
+//Segurança para efetuar logins
 const login = (req, res, next) =>{
     //Tratamos dos atributos passados, caso estejam vazios
     const email = req.body.email || ''
@@ -44,3 +46,57 @@ const validateToken = (req, res, next) => {
         return res.status(200).send({ valid: !err})
     })
 }
+
+//Segurança para efetuar cadastros 
+const signup = (req, res, next) => {
+    //Tratando os dados recebidos
+    const name = req.body.name || ''
+    const email = req.body.email || ''
+    const password = req.boby.password || ''
+    const confirmPassword = req.body.confirmPassword || ''
+
+    //Validando o formado do e-mail digitado
+    if(!email.match(emailRegex)){
+        return res.status(400).send({ 
+            errors: ['O e-mail informa está inválido']
+        })
+    }
+
+    //Validando o formato da senha digitada
+    if(!password.match(passwordRegex)){
+        return res.status(400).send({
+            errors: ['Senha precisa ter: uma letra maiúscula, uma letra minúscula, um número, um caractere especial(@#$%) e tamanha entre 6-20']
+        })
+    }
+
+    //Validando a senha de confirmação
+    const salt = bcrypt.genSaltSync()
+    const passwordHash = bcrypt.hashSync(password, salt)
+    if(!bcrypt.compareSync(confirmPassword, passwordHash)){
+        return res.status(400).send({
+            errors: ['Senhas não conferem']
+        })
+    }
+
+    //Verificando se o usuario já existe na base de dados
+    User.findOne({ email }, (err, user) => {
+        if(err){
+            return sendErrorsFromDB(res, err)
+        }else if(user){
+            return res.status(400).send({
+                errors: ['Usuário já cadastrado']
+            })
+        }else{
+            const newUser = new User({ name, email, password: passwordHash})
+            newUser.save(err => {
+                if(err){
+                    return sendErrorsFromDB(res, err)
+                }else{//Tudo estando ok, nós logamos na conta criada
+                    login(req, res, next)
+                }
+            })
+        }
+    })
+}
+
+module.exports = { login, signup, validateToken}
