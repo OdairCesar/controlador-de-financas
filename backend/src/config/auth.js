@@ -7,7 +7,7 @@ module.exports = (req, res, next) => {
     if(req.method === 'OPTIONS'){
         next()
     }else{
-        const token = req.body.token || req.query.token || req.headers['authorization']
+        const token = req.body.token || req.query.token || req.headers['Authorization']
 
         if(!token){
             return res.status(403).send({
