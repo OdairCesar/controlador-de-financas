@@ -3,6 +3,8 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { logout } from '../pages/auth/authActions'
 
+import imgUser from '../../assets/imgs/user.png'
+
 class Navbar extends Component {
 
     constructor(props) {
@@ -21,28 +23,28 @@ class Navbar extends Component {
                 <ul className="nav navbar-nav">
                     <li onMouseLeave={() => this.changeOpen()}
                         className={`dropdown user user-menu ${ this.state.open ? 'open' : '' } `}>
-                        <a href="javascript:;" 
+                        <a href={null} 
                             onClick={() => this.changeOpen()}
                             aria-expanded={ this.state.open ? 'true' : 'false'  }
                             className="dropdown-toggle"
                             data-toggle="dropdown" >
-                            <img src="http://lorempixel.com/160/160/abstract"
+                            <img src={imgUser}
                                 className="user-image" 
-                                alt="User Image" />
+                                alt="Seu rosto" />
                             <span className="hidden-xs">
                                 { name }
                             </span>
                         </a>
                         <ul className="dropdown-menu">
                             <li className="user-header">
-                                <img src="http://lorempixel.com/160/160/abstract"
+                                <img src={imgUser}
                                     className="img-circle" 
-                                    alt="User Image" />
+                                    alt="Seu rosto" />
                                 <p>{ name }<small>{ email }</small></p>
                             </li>
                             <li className="user-footer">
                                 <div className="pull-right">
-                                    <a href="#" 
+                                    <a href="/" 
                                         onClick={ this.props.logout }
                                         className="btn btn-default btn-flat">Sair</a>
                                 </div>

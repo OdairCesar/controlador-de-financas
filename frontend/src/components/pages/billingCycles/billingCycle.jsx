@@ -14,7 +14,7 @@ import TabHeader from './tab/tabHeader'
 import TabsContent from './tab/tabsContent'
 import TabContent from './tab/tabContent'
 
-class BillingCycles extends Component{
+class BillingCycle extends Component{
 
     componentWillMount(){
         this.props.init()
@@ -70,4 +70,4 @@ const mapDispatchToProps = dispatch =>
         update,
         remove
     }, dispatch)
-export default connect(null, mapDispatchToProps) (BillingCycles)
+export default connect(null, mapDispatchToProps) (BillingCycle)

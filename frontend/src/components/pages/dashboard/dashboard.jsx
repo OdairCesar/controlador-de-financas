@@ -5,8 +5,6 @@ import { bindActionCreators } from 'redux'
 import { getSummary } from './dashboardActions'
 import Content from '../../template/content'
 import ContentHeader from '../../template/contentHeader'
-import ValueBox from '../../widget/valueBox'
-import Row from '../../layout/row'
 import Summary from '../../template/summary'
 
 

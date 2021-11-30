@@ -34,7 +34,7 @@ class BillingCycleForm extends Component{
         } = this.calculateSummary()
 
         return(
-            <form role='form' onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit}>
                 <div className="box-body">
                     <Field 
                         name='name' 
