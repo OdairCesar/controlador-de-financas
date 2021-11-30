@@ -25,7 +25,7 @@ const login = (req, res, next) =>{
         if (err){
             return sendErrorsFromDB(res, err)
         }else if( user && bcrypt.compareSync(password, user.password)){//so passamos o token se user existir e a validação da senha der ok
-            const token = jwt.sign(user, env.authSecret, { expiresIn: "1 day"})
+            const token = jwt.sign({ ...user }, env.authSecret, { expiresIn: "1 day"})
             const { name, email } = user
             res.json({ name, email, token })
         }else{//se não ocorreu erro e a senha estiver errada, basta informar que a senha ou usuario estão errados
